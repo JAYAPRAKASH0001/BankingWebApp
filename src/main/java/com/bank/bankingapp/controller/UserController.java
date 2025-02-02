@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-
     /* TODO:
        1. Registration
             - POST request: That gets the user details and save it in db.
@@ -16,5 +15,7 @@ public class UserController {
             - POST request: Validates the users and balance, then perform a valid transaction.
        5. Account View -> Balance
             - GET request: That shows the details of Account Holder.
+       Testing purpose
      */
+
 }
