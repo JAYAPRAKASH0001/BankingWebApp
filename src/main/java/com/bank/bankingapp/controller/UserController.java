@@ -1,5 +1,6 @@
 package com.bank.bankingapp.controller;
 
+
 import com.bank.bankingapp.model.User;
 import com.bank.bankingapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
     /* TODO:
        1. Registration
             - POST request: That gets the user details and save it in db.

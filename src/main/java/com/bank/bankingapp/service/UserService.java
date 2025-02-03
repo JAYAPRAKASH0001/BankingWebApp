@@ -1,5 +1,6 @@
 package com.bank.bankingapp.service;
 
+
 import com.bank.bankingapp.model.User;
 import com.bank.bankingapp.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
