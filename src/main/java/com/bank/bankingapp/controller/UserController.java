@@ -1,10 +1,18 @@
 package com.bank.bankingapp.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.bank.bankingapp.model.User;
+import com.bank.bankingapp.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 @RestController
 public class UserController {
 
+    @Autowired
+    UserService userService;
     /* TODO:
        1. Registration
             - POST request: That gets the user details and save it in db.
@@ -17,4 +25,13 @@ public class UserController {
        5. Account View -> Balance
             - GET request: That shows the details of Account Holder.
      */
+
+    @PostMapping("register")
+    public String register(@RequestParam("Name") String name
+                            ,@RequestParam("Email") String email
+                            ,@RequestParam("Password") String password
+                            ,@RequestParam("PhoneNo") long phoneNo
+                            ,@RequestParam("Dob") LocalDate dob) {
+        return userService.register(name,email,password,phoneNo,dob);
+    }
 }
