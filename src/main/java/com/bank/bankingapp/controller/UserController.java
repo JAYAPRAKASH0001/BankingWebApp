@@ -1,9 +1,16 @@
 package com.bank.bankingapp.controller;
 
+import com.bank.bankingapp.service.UserService;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
+
+    UserService userService;
+
+
+
 
     /* TODO:
        1. Registration
