@@ -36,4 +36,17 @@ public class UserController {
                             ,@RequestParam("Dob") LocalDate dob) {
         return userService.register(name,email,password,phoneNo,dob);
     }
+    @PostMapping("withdraw")
+    public String withdraw(@RequestParam("Password") String password ,
+                           @RequestParam("Id") int id,
+                           @RequestParam("withdrawlAmount") int withdrawlAmount)
+    {
+        try{
+            return userService.withdraw(id,password,withdrawlAmount);
+        }
+        catch(Exception e){
+            return e.getMessage();
+        }
+    }
+
 }
