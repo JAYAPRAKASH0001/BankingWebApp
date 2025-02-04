@@ -16,7 +16,6 @@ public class UserService {
     UserRepo userRepo;
 
     int id=101;
-
     public String register(String name, String email, String password, long phoneNo, LocalDate dob) {
 
         int tempId=id*1000;
@@ -27,6 +26,7 @@ public class UserService {
         return "your id is "+tempId;
         //check the database for any existing acc.no = generated. If suppose regenerate the id. --> yet to be finished
     }
+
     public String withdraw(int id, String password, int withdrawalAmount) {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not found."));
@@ -45,4 +45,12 @@ public class UserService {
     }
 
 
+    public String authenticate(int id, String password) throws Exception {
+
+        User user= userRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found."));
+        if (!user.getPassword().equals(password)) {
+            throw new IllegalArgumentException("Wrong password");
+        }
+        return "successfully logged in";
+    }
 }
