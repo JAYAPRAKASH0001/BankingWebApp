@@ -27,4 +27,22 @@ public class UserService {
         return "your id is "+tempId;
         //check the database for any existing acc.no = generated. If suppose regenerate the id. --> yet to be finished
     }
+    public String withdraw(int id, String password, int withdrawalAmount) {
+        User user = userRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not found."));
+
+        if (!user.getPassword().equals(password)) {
+            throw new IllegalArgumentException("Wrong password");
+        }
+        if (withdrawalAmount > user.getBalance()) {  // Fix: Corrected condition
+            throw new IllegalArgumentException("Insufficient balance");
+        }
+
+        user.setBalance(user.getBalance() - withdrawalAmount);
+        userRepo.save(user);
+
+        return "Withdrawal successful. Your balance is " + user.getBalance();
+    }
+
+
 }

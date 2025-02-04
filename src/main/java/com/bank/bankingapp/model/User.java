@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Getter
 @Setter
@@ -18,7 +17,7 @@ import java.util.Date;
 @Entity
 public class User {
 
-    @jakarta.persistence.Id
+    @Id
     private int Id;
     private String Name;
     private String Email;
