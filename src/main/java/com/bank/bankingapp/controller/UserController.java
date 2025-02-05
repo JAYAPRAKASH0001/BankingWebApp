@@ -49,4 +49,13 @@ public class UserController {
         }
     }
 
+    @PostMapping("login")
+    public String login(@RequestParam("Id") int id
+                        ,@RequestParam("Password") String password) {
+        try {
+            return userService.authenticate(id, password);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
 }
